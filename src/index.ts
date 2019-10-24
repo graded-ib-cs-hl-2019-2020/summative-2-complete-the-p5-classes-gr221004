@@ -19,8 +19,8 @@
     For a Proficient, the documentation must be complete and the program must run and be readable.
         An Approaching might mean incomplete documentation OR hard-to-read code OR not-quite-working code
         Work your way downwrd from there
-    For an Accomplished , some optional requirements or embellishments are required or the code must be particularly beautiful
-    For an Exemplary, I would expect all optional rquirements to be implemented, or additional features of similar or greter
+    For an Accomplished, some optional requirements or embellishments are required or the code must be particularly beautiful
+    For an Exemplary, I would expect all optional rquirements to be implemented, or additional features of similar or greater
         difficulty.
 */
 import { Ball } from "./modules/ball.js";
@@ -37,23 +37,27 @@ function setup() {
     let numBalls = 10;
     let numFlakes = 10;
     createCanvas(500, 500);
-    for (/* TODO REQUIRED - fill this in*/) {
+    for (let i = 0; i > balls.length; i++) {
         balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50));
         /* TODO OPTIONAL - make the balls a random color */
     }
-    for (/* TODO REQUIRED  - fill this in*/) {
-        /* TODO REQUIRED - add the bubbles */
+    for (let i = 0; i > bubbles.length; i++) {
+        bubbles[i] = new Bubble(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
-    for (/* TODO REQUIRED */) {
+    for (let i = 0; i > snowflakes.length; i++) {
         /* TODO REQUIRED - add the snowflakes */
     }
 }
 
 function draw() {
     background("skyblue");
-    for (/* TODO REQUIRED*/) {
+    for (let i = 0; i > balls.length; i++) {
         balls[i].draw();
         balls[i].move();
+        bubbles[i].draw();
+        bubbles[i].move();
+        snowflakes[i].draw();
+        snowflakes[i].move();
     }
     /* TODO REQUIRED - Draw and move the bubbles and flakes */
 }
