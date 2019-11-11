@@ -20,6 +20,46 @@ export class Ball {
     this.borderColor = borderColor;
   }
 
+  public getX() {
+    return this.x;
+  }
+
+  public setX(newX: number) {
+    this.x = newX;
+  }
+
+  public getY() {
+    return this.y;
+  }
+
+  public setY(newY: number) {
+    this.y = newY;
+  }
+
+  public getSize() {
+    return this.size;
+  }
+
+  public setSize(newSize: number) {
+    this.size = newSize;
+  }
+
+  public getColor() {
+    return this.color;
+  }
+
+  public setColor(newColor: string) {
+    this.color = newColor;
+  }
+
+  public getBorderColor() {
+    return this.borderColor;
+  }
+
+  public setBorderColor(newBorderColor: string) {
+    this.borderColor = newBorderColor;
+  }
+
   public stop() {
     this.stopped = true;
   }
