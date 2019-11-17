@@ -38,8 +38,12 @@ function setup() {
     let numFlakes = 10;
     createCanvas(500, 500);
     for (let i = 0; i < balls.length; i++) {
-        balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50));
-        /* TODO OPTIONAL - make the balls a random color */
+        let symbols = "0123456789ABCDEF";
+        let color = "#";
+        for (let j = 0; j < 6; j++) {
+            color = color + symbols[Math.floor(Math.random() * 16)];
+        }
+        balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50), color);
     }
     for (let i = 0; i < bubbles.length; i++) {
         bubbles[i] = new Bubble(random(25, width - 25), random(25, height - 25), random(10, 50));
@@ -75,7 +79,9 @@ function draw() {
 */
 
 function mousePressed(): void {
-
+    if (!balls[i].touchingMouse()) {
+        balls[i].move();
+    }
 
 }
 
