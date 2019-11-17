@@ -60,7 +60,7 @@ function draw() {
         bubbles[i].draw();
         bubbles[i].move();
     }
-    for (let i = 0; i < balls.length; i++) {
+    for (let i = 0; i < snowflakes.length; i++) {
         snowflakes[i].draw();
         snowflakes[i].move();
 

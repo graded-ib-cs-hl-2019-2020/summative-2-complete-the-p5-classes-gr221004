@@ -31,6 +31,14 @@ export class Snowflake {
         this.stopped = false;
     }
 
+    public draw(): void {
+        stroke(this.color);
+        line(this.x, this.y + this.size / 2, this.x, this.y - this.size / 2);
+        line(this.x + this.size / 2, this.y, this.x - this.size / 2, this.y);
+        line(this.x - this.size / 3, this.y - this.size / 3, this.x + this.size / 3, this.y + this.size / 3);
+        line(this.x - this.size / 3, this.y + this.size / 3, this.x + this.size / 3, this.y - this.size / 3);
+    }
+
     public move(): void {
         if (this.stopped == false) {
             this.x = this.xSpeed + this.x;
@@ -41,6 +49,10 @@ export class Snowflake {
 
     public distFromMouse(): number {
         return dist(this.x, this.y, mouseX, mouseY);
+    }
+
+    public touchingMouse(): boolean {
+        return this.distFromMouse() < this.size / 2;
     }
 
     /* This border behavior implements a wrap, so snowflakes will flip over to the other side */
@@ -55,14 +67,6 @@ export class Snowflake {
         } else if (this.y > height + this.size / 2) {
             this.y = -this.size / 2;
         }
-    }
-
-    public draw(): void {
-        stroke(this.color);
-        line(this.x, this.y + this.size / 2, this.x, this.y - this.size / 2);
-        line(this.x + this.size / 2, this.y, this.x - this.size / 2, this.y);
-        line(this.x - this.size / 3, this.y - this.size / 3, this.x + this.size / 3, this.y + this.size / 3);
-        line(this.x - this.size / 3, this.y + this.size / 3, this.x + this.size / 3, this.y - this.size / 3);
     }
 
 }

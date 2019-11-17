@@ -13,6 +13,8 @@ export class Ball {
     this.x = x;
     this.y = y;
     this.size = size;
+    this.xSpeed;
+    this.ySpeed;
     this.color = color;
     this.borderColor = borderColor;
     this.stopped = false;
