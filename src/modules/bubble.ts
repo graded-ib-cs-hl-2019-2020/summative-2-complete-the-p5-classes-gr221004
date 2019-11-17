@@ -3,24 +3,21 @@ export class Bubble {
     private x: number;
     private y: number;
     private size: number;
-    private xSpeed: number = random(-3, 3);
-    private ySpeed: number = random(-3, 3);
+    private xSpeed: number = random(-1, 1);
+    private ySpeed: number = random(-1, 1);
     private stopped: boolean = false;
-    private color: string = "white";
-    private borderColor: string = "blue";
+    private color: string;
+    private borderColor: string;
 
-    /* TODO REQUIRED - What's missing here? Add it! */
-
-    constructor(x: number, y: number, size: number) {
-        /* TODO REQUIRED = Build your constructor */
-        /* TODO OPTIONAL - add optional parameters to set color and borderColor on creation of the object */
+    constructor(x: number, y: number, size: number, color: string = "white", borderColor: string = "blue") {
         this.x = x;
         this.y = y;
         this.size = size;
-        this.color;
+        this.color = color;
         this.borderColor = borderColor;
         this.xSpeed;
         this.ySpeed;
+        this.stopped = false;
     }
 
     public stop() {
@@ -32,12 +29,17 @@ export class Bubble {
     }
 
     public draw(): void {
-        /* TODO REQUIRED - draw the bubbles */
+        fill(this.color);
+        stroke(this.borderColor);
+        ellipse(this.x, this.y, this.size);
     }
 
     public move(): void {
-        /* TODO REQUIRED - Make the bubbles move as long as they aren't stopped. Model after ball behavior. */
-        /* The doBorderBehavior is built in for you below. */
+        if (this.stopped == false) {
+            this.x = this.xSpeed + this.x;
+            this.y = this.ySpeed + this.y;
+            this.doBorderBehavior();
+        }
     }
 
     public distFromMouse(): number {

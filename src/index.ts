@@ -45,7 +45,6 @@ function setup() {
         bubbles[i] = new Bubble(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
     for (let i = 0; i < snowflakes.length; i++) {
-        /* TODO REQUIRED - add the snowflakes */
         snowflakes[i] = new Snowflake(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
 }
@@ -74,6 +73,11 @@ function draw() {
    objects from moving then start them back up again. The Ball class has some helper functions that will
    help you with this, but you'll need to add them to the other classes.
 */
+
+function mousePressed(): void {
+
+
+}
 
 // do not edit the below lines
 window.draw = draw;

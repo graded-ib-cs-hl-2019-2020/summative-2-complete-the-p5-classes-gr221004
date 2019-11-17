@@ -6,15 +6,21 @@ export class Snowflake {
     private x: number;
     private y: number;
     private size: number;
-    private xSpeed: number;
-    private ySpeed: number;
+    private xSpeed: number = random(-0.3, 0.2);
+    private ySpeed: number = random(-0.4, 1.6);
     private stopped: boolean = false;
     private color: string;
     private borderColor: string;
 
-    constructor(x: number, y: number, size: number) {
-        /* TODO REQUIRED = Build your constructor */
-        /* TODO OPTIONAL - add optional parameters to set color and borderColor on creation of the object */
+    constructor(x: number, y: number, size: number, color: string = "white", borderColor: string = "white") {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.color = color;
+        this.borderColor = borderColor;
+        this.xSpeed;
+        this.ySpeed;
+        this.stopped = false;
     }
 
     public stop() {
@@ -26,15 +32,18 @@ export class Snowflake {
     }
 
     public move(): void {
-        /* TODO REQUIRED - Make the bubbles move as long as they aren't stopped. Model after ball behavior. */
-        /* The doBorderBehavior is built in for you below. */
+        if (this.stopped == false) {
+            this.x = this.xSpeed + this.x;
+            this.y = this.ySpeed + this.y;
+            this.doBorderBehavior();
+        }
     }
 
     public distFromMouse(): number {
         return dist(this.x, this.y, mouseX, mouseY);
     }
 
-    /* This border behavior implements a wrap, so bubbles will flip over to the other side */
+    /* This border behavior implements a wrap, so snowflakes will flip over to the other side */
     private doBorderBehavior() {
         if (this.x < -this.size / 2) {
             this.x = width + this.size / 2;
