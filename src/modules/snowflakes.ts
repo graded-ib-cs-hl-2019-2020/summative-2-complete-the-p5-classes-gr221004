@@ -51,6 +51,9 @@ export class Snowflake {
         return dist(this.x, this.y, mouseX, mouseY);
     }
 
+    public touchingMouse(): boolean {
+        return this.distFromMouse() < this.size / 2;
+    }
 
     /* This border behavior implements a wrap, so snowflakes will flip over to the other side */
     private doBorderBehavior() {

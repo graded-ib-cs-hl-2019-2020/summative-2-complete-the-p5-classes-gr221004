@@ -73,18 +73,50 @@ function draw() {
 
 }
 
-/* TODO OPTIONAL - add a function mousePressed() that either stops or starts objects from moving
-   if the mouse is pressed while it is touching them. So you could use this (if careful!) to stop all of the
-   objects from moving then start them back up again. The Ball class has some helper functions that will
-   help you with this, but you'll need to add them to the other classes.
-*/
+function mousePressed(): void {
+    for (let i = 0; i < balls.length; i++) {
+        if (balls[i].touchingMouse()) {
+            balls[i].stop();
+        }
+        if (!balls[i].touchingMouse()) {
+            balls[i].go();
+        }
+    }
 
-// function mousePressed(): void {
-//     if (!balls[i].touchingMouse()) {
-//         balls[i].move();
-//     }
+    for (let i = 0; i < bubbles.length; i++) {
+        if (bubbles[i].touchingMouse()) {
+            bubbles[i].stop();
+        }
+        if (!bubbles[i].touchingMouse()) {
+            bubbles[i].go();
+        }
+    }
 
-// }
+    for (let i = 0; i < snowflakes.length; i++) {
+        if (snowflakes[i].touchingMouse()) {
+            snowflakes[i].stop();
+        }
+        if (!snowflakes[i].touchingMouse()) {
+            snowflakes[i].go();
+        }
+    }
+
+}
+
+function mouseReleased(): void {
+    for (let i = 0; i < bubbles.length; i++) {
+        balls[i].go();
+    }
+
+    for (let i = 0; i < bubbles.length; i++) {
+        bubbles[i].go();
+    }
+
+    for (let i = 0; i < snowflakes.length; i++) {
+        snowflakes[i].go();
+    }
+
+}
 
 // do not edit the below lines
 window.draw = draw;
