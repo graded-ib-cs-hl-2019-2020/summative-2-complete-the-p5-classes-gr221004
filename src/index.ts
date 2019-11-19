@@ -78,12 +78,12 @@ function draw() {
    help you with this, but you'll need to add them to the other classes.
 */
 
-function mousePressed(): void {
-    if (!balls[i].touchingMouse()) {
-        balls[i].move();
-    }
+// function mousePressed(): void {
+//     if (!balls[i].touchingMouse()) {
+//         balls[i].move();
+//     }
 
-}
+// }
 
 // do not edit the below lines
 window.draw = draw;
