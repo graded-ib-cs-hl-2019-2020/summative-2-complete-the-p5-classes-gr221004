@@ -36,8 +36,9 @@ function setup() {
     let numBubbles = 10;
     let numBalls = 10;
     let numFlakes = 10;
+
     createCanvas(500, 500);
-    for (let i = 0; i < balls.length; i++) {
+    for (let i = 0; i < numBalls; i++) {
         let symbols = "0123456789ABCDEF";
         let color = "#";
         for (let j = 0; j < 6; j++) {
@@ -45,10 +46,10 @@ function setup() {
         }
         balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50), color);
     }
-    for (let i = 0; i < bubbles.length; i++) {
+    for (let i = 0; i < numBubbles; i++) {
         bubbles[i] = new Bubble(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
-    for (let i = 0; i < snowflakes.length; i++) {
+    for (let i = 0; i < numFlakes; i++) {
         snowflakes[i] = new Snowflake(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
 }

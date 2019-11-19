@@ -9,7 +9,7 @@ export class Bubble {
     private color: string;
     private borderColor: string;
 
-    constructor(x: number, y: number, size: number, color: string = "ffffffcc", borderColor: string = "blue") {
+    constructor(x: number, y: number, size: number, color: string = "#FFFFFF80", borderColor: string = "blue") {
         this.x = x;
         this.y = y;
         this.size = size;
