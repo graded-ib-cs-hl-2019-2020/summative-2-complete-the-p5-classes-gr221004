@@ -37,7 +37,7 @@ function setup() {
     let numBalls = 10;
     let numFlakes = 10;
 
-    createCanvas(500, 500);
+    createCanvas(1400, 700);
     for (let i = 0; i < numBalls; i++) {
         let symbols = "0123456789ABCDEF";
         let color = "#";
