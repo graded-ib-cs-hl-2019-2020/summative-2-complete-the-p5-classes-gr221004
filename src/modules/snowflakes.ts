@@ -4,7 +4,7 @@ export class Snowflake {
     private y: number;
     private size: number;
     private xSpeed: number = random(-0.3, 0.2);
-    private ySpeed: number = random(-0.4, 1.6);
+    private ySpeed: number = random(0.4, 1.6);
     private stopped: boolean = false;
     private color: string;
     private borderColor: string;
