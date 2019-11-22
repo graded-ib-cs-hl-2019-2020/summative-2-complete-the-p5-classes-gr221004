@@ -56,6 +56,12 @@ function setup() {
 
 function draw() {
     background("skyblue");
+    fill("white");
+    ellipse(700, 640, 400, 400);
+    fill("white");
+    ellipse(700, 450, 300, 300);
+    fill("white");
+    ellipse(700, 270, 200, 200);
     for (let i = 0; i < balls.length; i++) {
         balls[i].draw();
         balls[i].move();
@@ -70,7 +76,6 @@ function draw() {
         snowflakes[i].move();
 
     }
-
 }
 
 function mousePressed(): void {
