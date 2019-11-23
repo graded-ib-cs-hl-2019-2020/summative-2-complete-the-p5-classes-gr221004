@@ -37,7 +37,7 @@ function setup() {
     let numBalls = 10;
     let numFlakes = 10;
 
-    createCanvas(1400, 700);
+    createCanvas(1400, 750);
     for (let i = 0; i < numBalls; i++) {
         let symbols = "0123456789ABCDEF";
         let color = "#";
@@ -56,12 +56,18 @@ function setup() {
 
 function draw() {
     background("skyblue");
-    fill("white");
-    ellipse(700, 640, 400, 400);
-    fill("white");
-    ellipse(700, 450, 300, 300);
-    fill("white");
-    ellipse(700, 270, 200, 200);
+    fill("white"), stroke("white"), ellipse(700, 640, 400, 400);
+    fill("white"), stroke("white"), ellipse(700, 450, 300, 300);
+    fill("white"), stroke("white"), ellipse(700, 270, 200, 200);
+    fill("black"), ellipse(660, 250, 15, 15);
+    fill("black"), ellipse(740, 250, 15, 15);
+    fill("DarkOrange"), stroke("DarkOrange"), triangle(700, 280, 700, 310, 770, 320);
+    fill("SaddleBrown"), stroke("SaddleBrown"), rect(800, 400, 100, 20, 6, 6);
+    fill("SaddleBrown"), stroke("SaddleBrown"), rect(500, 400, 100, 20, 6, 6);
+    fill("black"), ellipse(700, 400, 10, 10);
+    fill("black"), ellipse(700, 470, 10, 10);
+    fill("black"), ellipse(700, 540, 10, 10);
+
     for (let i = 0; i < balls.length; i++) {
         balls[i].draw();
         balls[i].move();
