@@ -4,7 +4,7 @@ export class Bubble {
     private y: number;
     private size: number;
     private xSpeed: number = random(-1, 1);
-    private ySpeed: number = random(-1, 1);
+    private ySpeed: number = random(-1, -1);
     private stopped: boolean = false;
     private color: string;
     private borderColor: string;
