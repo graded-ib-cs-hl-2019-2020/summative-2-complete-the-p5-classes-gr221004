@@ -19,8 +19,8 @@
     For a Proficient, the documentation must be complete and the program must run and be readable.
         An Approaching might mean incomplete documentation OR hard-to-read code OR not-quite-working code
         Work your way downwrd from there
-    For an Accomplished , some optional requirements or embellishments are required or the code must be particularly beautiful
-    For an Exemplary, I would expect all optional rquirements to be implemented, or additional features of similar or greter
+    For an Accomplished, some optional requirements or embellishments are required or the code must be particularly beautiful
+    For an Exemplary, I would expect all optional rquirements to be implemented, or additional features of similar or greater
         difficulty.
 */
 import { Ball } from "./modules/ball.js";
@@ -36,33 +36,98 @@ function setup() {
     let numBubbles = 10;
     let numBalls = 10;
     let numFlakes = 10;
-    createCanvas(500, 500);
-    for (/* TODO REQUIRED - fill this in*/) {
-        balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50));
-        /* TODO OPTIONAL - make the balls a random color */
+
+    createCanvas(1400, 750);
+    for (let i = 0; i < numBalls; i++) {
+        let symbols = "0123456789ABCDEF";
+        let color = "#";
+        for (let j = 0; j < 6; j++) {
+            color = color + symbols[Math.floor(Math.random() * 16)];
+        }
+        balls[i] = new Ball(random(25, width - 25), random(25, height - 25), random(10, 50), color);
     }
-    for (/* TODO REQUIRED  - fill this in*/) {
-        /* TODO REQUIRED - add the bubbles */
+    for (let i = 0; i < numBubbles; i++) {
+        bubbles[i] = new Bubble(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
-    for (/* TODO REQUIRED */) {
-        /* TODO REQUIRED - add the snowflakes */
+    for (let i = 0; i < numFlakes; i++) {
+        snowflakes[i] = new Snowflake(random(25, width - 25), random(25, height - 25), random(10, 50));
     }
 }
 
 function draw() {
     background("skyblue");
-    for (/* TODO REQUIRED*/) {
+    fill("white"), stroke("white"), ellipse(700, 640, 400, 400);
+    fill("white"), stroke("white"), ellipse(700, 450, 300, 300);
+    fill("white"), stroke("white"), ellipse(700, 270, 200, 200);
+    fill("black"), ellipse(660, 250, 15, 15);
+    fill("black"), ellipse(740, 250, 15, 15);
+    fill("DarkOrange"), stroke("DarkOrange"), triangle(700, 280, 700, 310, 770, 320);
+    fill("SaddleBrown"), stroke("SaddleBrown"), rect(800, 400, 100, 20, 6, 6);
+    fill("SaddleBrown"), stroke("SaddleBrown"), rect(500, 400, 100, 20, 6, 6);
+    fill("black"), ellipse(700, 400, 10, 10);
+    fill("black"), ellipse(700, 470, 10, 10);
+    fill("black"), ellipse(700, 540, 10, 10);
+
+    for (let i = 0; i < balls.length; i++) {
         balls[i].draw();
         balls[i].move();
+
     }
-    /* TODO REQUIRED - Draw and move the bubbles and flakes */
+    for (let i = 0; i < bubbles.length; i++) {
+        bubbles[i].draw();
+        bubbles[i].move();
+    }
+    for (let i = 0; i < snowflakes.length; i++) {
+        snowflakes[i].draw();
+        snowflakes[i].move();
+
+    }
 }
 
-/* TODO OPTIONAL - add a function mousePressed() that either stops or starts objects from moving
-   if the mouse is pressed while it is touching them. So you could use this (if careful!) to stop all of the
-   objects from moving then start them back up again. The Ball class has some helper functions that will
-   help you with this, but you'll need to add them to the other classes.
-*/
+function mousePressed(): void {
+    for (let i = 0; i < balls.length; i++) {
+        if (balls[i].touchingMouse()) {
+            balls[i].stop();
+        }
+        if (!balls[i].touchingMouse()) {
+            balls[i].go();
+        }
+    }
+
+    for (let i = 0; i < bubbles.length; i++) {
+        if (bubbles[i].touchingMouse()) {
+            bubbles[i].stop();
+        }
+        if (!bubbles[i].touchingMouse()) {
+            bubbles[i].go();
+        }
+    }
+
+    for (let i = 0; i < snowflakes.length; i++) {
+        if (snowflakes[i].touchingMouse()) {
+            snowflakes[i].stop();
+        }
+        if (!snowflakes[i].touchingMouse()) {
+            snowflakes[i].go();
+        }
+    }
+
+}
+
+function mouseReleased(): void {
+    for (let i = 0; i < bubbles.length; i++) {
+        balls[i].go();
+    }
+
+    for (let i = 0; i < bubbles.length; i++) {
+        bubbles[i].go();
+    }
+
+    for (let i = 0; i < snowflakes.length; i++) {
+        snowflakes[i].go();
+    }
+
+}
 
 // do not edit the below lines
 window.draw = draw;

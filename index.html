@@ -2,12 +2,31 @@
 <html>
 
 <head>
-  <title>Getting Started</title>
+  <title>Winter Scenery</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
 </head>
 
 <body>
   <script type="module" src="out/index.js"></script>
+</body>
+
+<body onload="blink();">
+  <canvas id="myCanvas" width="1400" height="150"></canvas>
+  <div id="textBlink">And to your family as well!</div>
+  <script>
+    let canvas = document.getElementById("myCanvas");
+    let context = canvas.getContext("2d");
+    context.font = "40pt Calibri";
+    context.fillStyle = "red";
+    context.fillText("Merry Early Christmas Shishter Gris!", 320, 100);
+
+    function blink() {
+      let b = document.getElementById("textBlink");
+      setInterval(function () {
+        b.style.display = (b.style.display == 'none' ? '' : 'none');
+      }, 1000);
+    }
+  </script>
 </body>
 
 </html>
